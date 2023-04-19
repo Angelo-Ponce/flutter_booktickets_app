@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_booktickets_app/screens/bottom_bar.dart';
+import 'package:flutter_booktickets_app/utils/app_styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue,
+        primaryColor: primary
       ),
       home: const BottomBar()
     );
