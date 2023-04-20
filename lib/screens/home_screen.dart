@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booktickets_app/screens/ticket_view.dart';
 import 'package:flutter_booktickets_app/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 
@@ -53,10 +54,25 @@ class HomeScreen extends StatelessWidget {
                       Text('Search', style: Styles.headLineStyle4,)
                     ],
                   ),
+                ),
+                const Gap(40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Upcoming Flights', style: Styles.headLineStyle2),
+                    InkWell(
+                      onTap: () {
+                        
+                      },
+                      child: Text('View all', style: Styles.textStyle.copyWith(color: Styles.primaryColor))
+                    )
+                  ],
                 )
               ],
             ),
-          )
+          ),
+          const Gap(15),
+          const TicketView()
         ],
       ),
     );
