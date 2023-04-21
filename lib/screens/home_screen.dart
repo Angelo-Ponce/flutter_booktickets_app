@@ -61,9 +61,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Text('Upcoming Flights', style: Styles.headLineStyle2),
                     InkWell(
-                      onTap: () {
-                        
-                      },
+                      onTap: () {},
                       child: Text('View all', style: Styles.textStyle.copyWith(color: Styles.primaryColor))
                     )
                   ],
@@ -72,7 +70,17 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          const TicketView()
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.only(left: 16),
+            child: Row(
+              children: const [
+                TicketView(),
+                TicketView()
+              ],
+            ),
+          )
         ],
       ),
     );
