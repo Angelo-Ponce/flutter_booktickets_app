@@ -1,6 +1,8 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_booktickets_app/screens/hotel_screen.dart';
 import 'package:flutter_booktickets_app/screens/ticket_view.dart';
+import 'package:flutter_booktickets_app/utils/app_info_list.dart';
 import 'package:flutter_booktickets_app/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 
@@ -10,8 +12,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Styles.bgColor,
+        elevation: 0,
+      ),
       backgroundColor: Styles.bgColor,
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -73,12 +80,32 @@ class HomeScreen extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.only(left: 16),
+            padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: const [
-                TicketView(),
-                TicketView()
+              children: ticketList.map((ticket) => TicketView(ticket: ticket)).toList()
+            ),
+          ),
+          const Gap(15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Hotels', style: Styles.headLineStyle2),
+                InkWell(
+                  onTap: () {},
+                  child: Text('View all', style: Styles.textStyle.copyWith(color: Styles.primaryColor))
+                )
               ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: hotelList.map((hotel) => HotelScreen(hotel: hotel)).toList(),
             ),
           )
         ],
