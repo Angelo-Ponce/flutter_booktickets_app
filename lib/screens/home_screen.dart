@@ -4,6 +4,7 @@ import 'package:flutter_booktickets_app/screens/hotel_screen.dart';
 import 'package:flutter_booktickets_app/screens/ticket_view.dart';
 import 'package:flutter_booktickets_app/utils/app_info_list.dart';
 import 'package:flutter_booktickets_app/utils/app_styles.dart';
+import 'package:flutter_booktickets_app/widgets/app_double_text_widget.dart';
 import 'package:gap/gap.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -63,16 +64,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Upcoming Flights', style: Styles.headLineStyle2),
-                    InkWell(
-                      onTap: () {},
-                      child: Text('View all', style: Styles.textStyle.copyWith(color: Styles.primaryColor))
-                    )
-                  ],
-                )
+                const AppDoubleText(bigText: 'Upcoming Flights', smallText: 'View all')
               ],
             ),
           ),
@@ -86,18 +78,9 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Hotels', style: Styles.headLineStyle2),
-                InkWell(
-                  onTap: () {},
-                  child: Text('View all', style: Styles.textStyle.copyWith(color: Styles.primaryColor))
-                )
-              ],
-            ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: AppDoubleText(bigText: 'Hotels', smallText: 'View all')
           ),
           const Gap(15),
           SingleChildScrollView(
