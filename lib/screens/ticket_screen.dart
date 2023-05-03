@@ -88,22 +88,69 @@ class TicketScreen extends StatelessWidget {
               /**
                * bar code
                */
+              const SizedBox(height: 1),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
-                  child: BarcodeWidget(
-                    data: 'https://github.com/Angelo-Ponce',
-                    barcode: Barcode.code128(),
-                    drawText: false,
-                    color: Styles.textColor,
-                    width: double.infinity,
-                    height: 70
+                margin: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
+                padding: EdgeInsets.symmetric(vertical: AppLayout.getHeight(20)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(AppLayout.getHeight(21)),
+                    bottomRight: Radius.circular(AppLayout.getHeight(21))
+                  )
+                ),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: AppLayout.getHeight(15)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                    child: BarcodeWidget(
+                      data: 'https://github.com/Angelo-Ponce',
+                      barcode: Barcode.code128(),
+                      drawText: false,
+                      color: Styles.textColor,
+                      width: double.infinity,
+                      height: 70
+                    ),
                   ),
                 ),
-              )
+              ),
+              Gap(AppLayout.getHeight(20)),
+              Container(
+                padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                child: TicketView(ticket: ticketList[0]),
+              ),
             ],
           ),
+          Positioned(
+            left: AppLayout.getHeight(23),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Styles.textColor, width: 2)
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
+          ),
+          Positioned(
+            right: AppLayout.getHeight(23),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Styles.textColor, width: 2)
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
+          )
         ],
       )
     );
